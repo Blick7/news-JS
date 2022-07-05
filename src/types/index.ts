@@ -19,6 +19,10 @@ export type NewsData = {
 };
 
 export interface ISources {
+    status: string;
+    sources: SourcesData[];
+}
+export type SourcesData = {
     id: string;
     name: string;
     description: string;
@@ -26,4 +30,4 @@ export interface ISources {
     category: string;
     language: string;
     content: string;
-}
+};
