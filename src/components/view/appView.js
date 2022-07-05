@@ -1,14 +1,16 @@
 import News from './news/news';
 import Sources from './sources/sources';
+import { INews, ISources } from '../../types/index';
 
 export class AppView {
+    // news: INews;
+    // sources: ISources;
     constructor() {
         this.news = new News();
         this.sources = new Sources();
     }
 
     drawNews(data) {
-        // console.log(data);
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }

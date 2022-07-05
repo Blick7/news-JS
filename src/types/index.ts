@@ -1,10 +1,10 @@
 export interface INews {
     status: string;
     totalResults: number;
-    archive: NewsData[];
+    articles: NewsData[];
 }
 
-type NewsData = {
+export type NewsData = {
     author: string;
     content: string;
     description: string;
