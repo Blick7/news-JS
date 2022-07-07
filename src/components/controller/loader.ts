@@ -1,5 +1,10 @@
 type Options = Record<string, string>;
 
+enum responseStatus {
+    clientErrorUnauthorized = 401,
+    clientErrorNotFound = 404,
+}
+
 class Loader {
     public baseLink: string;
     public options: Options;
@@ -20,7 +25,10 @@ class Loader {
 
     errorHandler(res: Response): Response {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (
+                res.status === responseStatus.clientErrorUnauthorized ||
+                res.status === responseStatus.clientErrorNotFound
+            )
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
